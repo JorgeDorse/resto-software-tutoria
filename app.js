@@ -210,7 +210,17 @@ let app = new Vue({
 		saveChanges: function(){
 					
 					let listaMesas = copy(this.listaMesas);
-
+					var config = {
+						headers: { 'Content-Type': 'application/json' },
+						responseType: 'json'
+					  };
+					  
+					  axios.post(API + '/mesas', this.mesaActiva)
+						.then((res) => {
+							let mesaActiva = res.data;
+						
+					  });
+					  console.log(this.mesaActiva);
 					// if(listaMesas._id){
 						// let id = this.agregarMesa._id;
 
@@ -223,11 +233,11 @@ let app = new Vue({
 						// })
 
 					// } else {
-						axios.post(API + '/mesas', 8).then( (res) => {
-							console.log("respuesta crud: ", res)
+						// axios.post(API + '/mesas', 8).then( (res) => {
+						// 	console.log("respuesta crud: ", res)
 
-							//app.changeState('listado')
-						})
+						// 	//app.changeState('listado')
+						// })
 					// }
 
 					console.log("mesas:: ", listaMesas)
